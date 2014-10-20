@@ -1,0 +1,15 @@
+<h1>welcome <%= @user.username %></h1>
+<p> "New Shout" </p>
+<%= form_for [@user, @shout] do |form| %>
+  <%= form.label "shout here" %>
+  <%= form.text_area :content %>
+  <%= form.submit %>
+<% end %>
+<ul>
+  <% @user.shouts.each do |shout| %>
+    <li>
+      <%= shout.content %>
+      <br>shouted by: <%= shout.user.username %>
+    </li>
+  <% end %>
+</ul>
