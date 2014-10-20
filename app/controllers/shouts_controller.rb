@@ -1,4 +1,5 @@
 class ShoutsController < ApplicationController
+  before_action :require_login
 
   def create
     @shout = current_user.shouts.new(shout_params) 

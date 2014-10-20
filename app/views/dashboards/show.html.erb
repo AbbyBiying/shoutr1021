@@ -1,6 +1,6 @@
-<h1>welcome <%= @user.username %></h1>
+<h1>welcome <%= @user.username %></h1> 
 
-<%= form_for [@user, @shout] do |form| %>
+<%= form_for @shout do |form| %>
 
   <div>
   <%= form.label "shout here" %>
