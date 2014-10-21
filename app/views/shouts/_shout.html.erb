@@ -1,0 +1,12 @@
+<div class="shout">
+<ul>
+  <% current_user.shouts.each do |shout| %>
+    <li>
+    <%= shout.content %>
+    <p class="author"> 
+    shouted by:
+
+    <%= link_to shout.username, shout.user %>
+    </li>
+  <% end %>
+</ul>

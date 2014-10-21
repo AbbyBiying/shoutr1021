@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020212004) do
+ActiveRecord::Schema.define(version: 20141021172046) do
+
+  create_table "follow_relationships", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follow_relationships", ["followed_user_id"], name: "index_follow_relationships_on_followed_user_id"
+  add_index "follow_relationships", ["follower_id"], name: "index_follow_relationships_on_follower_id"
 
   create_table "shouts", force: true do |t|
     t.datetime "created_at"

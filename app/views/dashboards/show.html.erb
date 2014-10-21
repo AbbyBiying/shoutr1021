@@ -1,13 +1,13 @@
-<h1>welcome <%= @user.username %></h1> 
+<h1>welcome <%= current_user.username %></h1> 
 
 <%= form_for @shout do |form| %>
 
   <div>
-  <%= form.label "shout here" %>
+  <%= form.label :content, "shout here" %>
   </div>
 
   <div>
-  <%= form.text_area :content %>
+  <%= form.text_field :content %>
   </div>
 
   <div>
@@ -16,11 +16,4 @@
 
 <% end %>
 
-<ul>
-  <% @user.shouts.each do |shout| %>
-    <li>
-      <%= shout.content %><br>
-      shouted by: <%= shout.user.username %>
-    </li>
-  <% end %>
-</ul>
+<%= render current_user.shouts %>
