@@ -1,15 +1,23 @@
 class User < ActiveRecord::Base
   has_many :shouts
   
+
+  has_many :follow_relationships, foreign_key: :follower_id, 
+    class_name: "FollowRelationship"
+    
+  has_many :followed_users, through: :follow_relationships
+
+
+  has_many :followered_relationships, foreign_key: :followed_user_id, 
+    class_name: "FollowRelationship"
+
+  has_many :followers, through: :followered_relationships
+ 
+
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
-  
-  has_many :followed_user_relationships,
-    class_name: "FollowRelationship",
-    foreign_key: :follower_id
 
-  has_many :followed_users, through: :followed_user_relationships
 
   def follow(user)
     followed_users << user

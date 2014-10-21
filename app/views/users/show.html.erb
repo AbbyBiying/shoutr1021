@@ -1,3 +1,6 @@
 <h1><%= @user.username %></h1>
-
-<%= button_to("follow!", follow_user_path(@user)) %>
+<% if @user.followers.include? current_user %>
+<%= button_to "unfollow", follow_user_path(@user), method: :delete %>
+<% else %>
+<%= button_to "follow!", follow_user_path(@user) %>
+<% end %>

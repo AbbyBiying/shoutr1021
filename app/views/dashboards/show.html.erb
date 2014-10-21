@@ -14,6 +14,7 @@
   <%= form.submit %>
   </div>
 
+  <%= render current_user.shouts.order(created_at: :desc) %>
+
 <% end %>
 
-<%= render current_user.shouts %>
