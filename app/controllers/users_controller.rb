@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def timeline
+    Shout.where(user_id:followed_user_ids)
+  end
 
   private
 

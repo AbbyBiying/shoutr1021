@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :follow_relationships, foreign_key: :follower_id, 
     class_name: "FollowRelationship"
-    
+
   has_many :followed_users, through: :follow_relationships
 
 
@@ -17,6 +17,14 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+
+  def timeline
+    Shout.where(user_id: includes_myself).order(created_at: :desc)
+  end
+
+  def includes_myself
+    [id] + followed_user_ids
+  end
 
 
   def follow(user)
