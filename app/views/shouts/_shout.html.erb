@@ -3,4 +3,9 @@
   <p class="author"> 
   shouted by: <%= link_to shout.username, shout.user %>
   </p>
+  <p>
+  <time>
+    Shouted <%= time_ago_in_words(shout.created_at) %> ago
+  </time>
+  </p>
 </div>
