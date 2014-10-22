@@ -1,13 +1,14 @@
+<h1>dashboard</h1>
 <h1>welcome <%= current_user.username %></h1> 
 
-<%= form_for @shout do |form| %>
+<%= form_for @text_shout do |form| %>
 
   <div>
-  <%= form.label :content, "shout here" %>
+  <%= form.label :body, "shout here" %>
   </div>
 
   <div>
-  <%= form.text_field :content %>
+  <%= form.text_field :body %>
   </div>
 
   <div>
@@ -15,7 +16,7 @@
   </div>
 
   <h2> SHOUTS! </h2>
-  <%= render current_user.timeline %>
+  <%= render current_user.shouts %>
 
 <% end %>
 

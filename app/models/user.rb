@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   has_many :shouts
   
 
@@ -29,6 +30,10 @@ class User < ActiveRecord::Base
 
   def follow(user)
     followed_users << user
+  end
+
+  def unfollow(user)
+    followed_users.destroy(user)
   end
   
   def to_param

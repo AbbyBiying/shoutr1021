@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resource :shouts, only: [:new, :create]
+
+  resources :text_shouts, only: [:create] 
+
   resources :users, only: [:new, :create, :show] do 
     member do
       post "follow" => "follows#create"
