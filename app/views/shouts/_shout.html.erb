@@ -1,5 +1,6 @@
-<div class="shout">
-  <%= shout.content.body %>
+<div class="shout"> 
+
+  <%= render shout.content %>
   <p class="author"> 
   shouted by: <%= link_to shout.username, shout.user %>
   </p>

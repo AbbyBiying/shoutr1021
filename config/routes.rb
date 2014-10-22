@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :text_shouts, only: [:create] 
 
+resources :picture_shouts, only: [:create]
   resources :users, only: [:new, :create, :show] do 
     member do
       post "follow" => "follows#create"

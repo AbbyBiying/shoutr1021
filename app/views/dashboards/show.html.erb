@@ -4,21 +4,37 @@
 <%= form_for @text_shout do |form| %>
 
   <div>
-  <%= form.label :body, "shout here" %>
+    <%= form.label :body, "shout here" %>
   </div>
 
   <div>
-  <%= form.text_field :body %>
+    <%= form.text_field :body %>
   </div>
 
   <div>
-  <%= form.submit %>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= form_for @picture_shout do |form| %>
+
+  <div>
+    <%= form.label :url, "picture shout here" %>
   </div>
 
-  <h2> SHOUTS! </h2>
-  <%= render current_user.shouts %>
+  <div>
+    <%= form.text_field :url %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
 
 <% end %>
+
+<h2> SHOUTS! </h2>
+<%= render current_user.timeline %>
+
 
 
 
