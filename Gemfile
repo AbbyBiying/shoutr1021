@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+ 
+gem 'kaminari'
+
+gem "paperclip", "~> 4.2"
 
 gem 'monban'
 gem 'monban-generators'

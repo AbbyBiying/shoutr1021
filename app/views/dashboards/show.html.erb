@@ -32,9 +32,9 @@
 
 <% end %>
 
-<h2> SHOUTS! </h2>
-<%= render current_user.timeline %>
-
+<h2> timeline </h2>
+<%= render @timeline %>
+<%= paginate @timeline, window: 5 %>
 
 
 
