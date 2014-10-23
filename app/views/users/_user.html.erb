@@ -1,0 +1,14 @@
+<%= link_to user.username, user %>
+<%= pluralize(user.followers.count, "follower") %>
+
+<p>follows <%= pluralize(user.followed_users.count, "user") %>  </p>
+
+<% if current_user != @user %>
+  <% if current_user.following? user %>
+    <p><%= button_to "unfollow", follow_user_path(user), method: :delete %></p>
+  <% else %>
+    <p><%= button_to "follow", follow_user_path(user) %></p>
+  <% end %>  
+<% end %> 
+<p>latest shout</p>
+<%= render user.shouts.order(created_at: :desc).first %>

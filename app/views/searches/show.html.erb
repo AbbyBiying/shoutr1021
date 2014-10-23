@@ -1,3 +1,16 @@
 <h1>search results for <% params[:search] %></h1>
 
 <%= render @shouts %>  
+
+
+<% if @shouts.present? %>
+  <%= render @shouts %>
+<% else %>
+  <p>no shouts found.</p> 
+<% end %>
+
+<% if @users.present? %>
+  <%= render @users %>
+<% else %>
+  <p>no users found.</p> 
+<% end %>

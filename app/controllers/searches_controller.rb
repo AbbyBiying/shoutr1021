@@ -2,6 +2,8 @@ class SearchesController < ApplicationController
 
   def show 
     @shouts = Shout.text_shouts(text_shout_ids)
+    @users = User.where("username ILIKE ?", "%#{params[:search]}%")
+    @timeline = current_user.timeline.page(params[:page])
   end
 
   private
