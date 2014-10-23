@@ -1,6 +1,8 @@
 class Shout < ActiveRecord::Base
   
   belongs_to :user
+
+  has_many :likes
   
   belongs_to :content, polymorphic: true 
 

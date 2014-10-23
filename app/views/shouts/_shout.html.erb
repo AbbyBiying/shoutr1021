@@ -8,5 +8,11 @@
   <time>
     Shouted <%= time_ago_in_words(shout.created_at) %> ago
   </time>
+  <% if current_user.liked_shouts.include? shout %>
+    <%= button_to "unlike", shout_like_path(shout), method: :delete %>
+  <% else %>
+    <%= button_to "like", shout_like_path(shout) %>
+  <% end %> 
+ <%= pluralize(shout.likes.count, "like") %> 
   </p>
 </div>

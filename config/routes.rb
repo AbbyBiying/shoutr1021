@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   resource :search, only: [:show]
 
-  resource :shouts, only: [:new, :create]
+  resources :shouts, only: [] do
+
+    resource :like, only: [:create, :destroy]
+  end
+
 
   resources :text_shouts, only: [:create] 
 

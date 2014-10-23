@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base 
   has_many :shouts
   
+  has_many :likes  
+  has_many :liked_shouts, through: :likes, source: :shout
 
   has_many :follow_relationships, foreign_key: :follower_id, 
     class_name: "FollowRelationship"
@@ -24,7 +26,7 @@ class User < ActiveRecord::Base
   def includes_myself
     [id] + followed_user_ids
   end
-
+  
 
   def follow(user)
     followed_users << user
