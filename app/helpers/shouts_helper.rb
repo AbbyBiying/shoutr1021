@@ -15,5 +15,4 @@ module ShoutsHelper
     end.html_safe
   end
 
-  
 end

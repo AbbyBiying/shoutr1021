@@ -11,7 +11,7 @@ class Shout < ActiveRecord::Base
   def self.text_shouts(ids)
     where(content_type: "TextShout", content_id: ids)
   end 
-
+  
   
   def username
     user.username

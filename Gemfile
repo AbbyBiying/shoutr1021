@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
  
+gem 'letter_opener', group: :development
 gem 'kaminari'
 
 gem "paperclip", "~> 4.2"
