@@ -13,7 +13,7 @@ class MakeShoutsContent < ActiveRecord::Migration
     remove_column :shouts, :content 
   end
   
-  class Shout < ActiveRecord: :Base
+  class Shout < ActiveRecord::Base
   end
 
 end
