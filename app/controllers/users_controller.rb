@@ -8,12 +8,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:id])
     @shouts = @user.shouts.page(params[:page])
-    
   end
 
   def create
     @user = sign_up(user_params)
-
     if @user.valid?
       sign_in(@user)
       redirect_to root_path
@@ -21,7 +19,6 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
 
   private
 
@@ -29,4 +26,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :username, :password)
   end
 end
-

@@ -1,8 +1,8 @@
 class PictureShoutsController < ApplicationController
   before_action :require_login
 
-  def create 
-    @picture_shout = PictureShout.new(picture_shout_params) 
+  def create
+    @picture_shout = PictureShout.new(picture_shout_params)
 
     if @picture_shout.save
       current_user.shouts.create(content: @picture_shout)
@@ -17,7 +17,5 @@ class PictureShoutsController < ApplicationController
 
   def picture_shout_params
     params.require(:picture_shout).permit(:url)
-    
-  end 
-
-end 
+  end
+end

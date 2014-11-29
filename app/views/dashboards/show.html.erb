@@ -1,8 +1,7 @@
 <h1>dashboard</h1>
-<h1>welcome <%= current_user.username %></h1> 
+<h1>welcome <%= current_user.username %></h1>
 
 <%= form_for @text_shout do |form| %>
-
   <div>
     <%= form.label :body, "shout here" %>
   </div>

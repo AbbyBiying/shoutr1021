@@ -4,30 +4,25 @@ require "monban/constraints/signed_out"
 Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
-
   resource :search, only: [:show]
-
   resources :shouts, only: [] do
-
     resource :like, only: [:create, :destroy]
   end
 
-
-  resources :text_shouts, only: [:create] 
-
+  resources :text_shouts, only: [:create]
   resources :picture_shouts, only: [:create]
-
-  resources :users, only: [:new, :create, :show] do 
+  resources :users, only: [:new, :create, :show] do
     member do
       post "follow" => "follows#create"
       delete "follow" => "follows#destroy"
     end
-  end 
+  end
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
   end
-  constraints Monban::Constraints::SignedOut.new do 
+
+  constraints Monban::Constraints::SignedOut.new do
     root "sessions#new"
   end
 end

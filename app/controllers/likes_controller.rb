@@ -11,7 +11,5 @@ class LikesController < ApplicationController
     current_user.liked_shouts.delete(shout)
 
     redirect_to :back
-
   end
-
 end
